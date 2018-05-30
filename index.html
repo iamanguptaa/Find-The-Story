@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Find The Story</title>
+  	<link rel="stylesheet" type="text/css" href="FTS.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="notify.js"></script>
+
+</head>
+<body>
+    <!--Top bar -->
+    <section class="head-box">
+          <div class="head-text">
+                  <h3>Find The Story</h3>                
+          </div>
+    </section>
+
+    <!-- header section with the introduction -->
+    <header>
+          <div class="home-box">
+                <div>
+                    <h1>An Image worth thousand words. </h1>
+                    <div >
+                      <p>A long-standing goal in the field of artificial intelligence is to develop agents that can perceive and understand the rich visual world around us and also who can communicate with us about it in natural language. And computer vision began as a new subject for study and research. 
+
+                      Computer vision is an interdisciplinary field that deals with how the computers can be made for gaining high-level understanding from digital images or videos. 
+                      <br><br>
+                      So, I also started with a vision to explore the future of computer vision to create something that will make the tough life of visually impaired people easier, to make them see and feel this beautiful world.
+
+                      </p>
+                    </div>
+                </div>
+                <div class="home-box-btn">
+                      <button><a href="FTH-cam.html" target="_blank">Playground</a></button>
+                </div>
+          </div>
+    </header>
+
+    <!-- Section for extarcting the image properties -->
+  <section id="section-2">
+    <h2>Browse an image file from your machine or you can capture a live image with your machine camera.</h2>
+  </section>
+		
+	<section>
+		 <div class="upload image section">
+		 	  <div class="up-image">
+                <input type="file" id="inputImage" onchange="readURL(this); " accept="image/*">
+        </div>
+		 	  <div class="up-image">
+          <button id="myBtn" class="myBtn">Find the Story</button>  
+        </div>
+        
+		 </div>
+	</section>
+
+	<section>
+			<div id="wrapper">
+				<div class="container">
+					<h3 class="container-head">Response</h3>
+					<div class="container-box">
+							<div class="tab">
+  									<button class="tablinks" onclick="toggle(event, 'Textual')" disabled="true">Textual</button>
+  									<button class="tablinks" onclick="toggle(event, 'JSON')" disabled="true">JSON</button>
+							</div>
+							<div id="Textual" class="tabcontent">
+  									<div id="textbox">
+                          <h4>Image Text</h4>
+                          <p id="imageText"></p>         
+                    </div>
+                    
+							</div>
+
+							<div id="JSON" class="tabcontent">
+  									 		<textarea id="responseTextArea" class="UIInput"></textarea>  									 
+							</div>
+					</div>
+					
+				</div>
+				<div class="container">
+					<h3 class="container-head">Image File</h3>
+					<div class="container-box">
+							<img id="sourceImage" style="box-shadow: none; margin: 0;" / >
+					</div>
+				</div>
+			</div>
+	</section>
+
+  <!--section to add the image collection-->  
+    <section>
+        
+    <div class="container-img">
+      <header id="c_header">
+        <h2 id="collection-h2" style="color: black;">Collections</h2>
+      </header>
+
+        <div class="tab2">
+             <button class="tablinks2" onclick="call(event, 'Outdoor')">Outdoor</button>
+               <button class="tablinks2" onclick="call(event, 'Indoor')">Indoor</button>
+               <button class="tablinks2" onclick="call(event, 'Individual')">Individual</button>
+               <button class="tablinks2" onclick="call(event, 'Group')">Group</button>
+               <button class="tablinks2" onclick="call(event, 'Others')">Others</button>
+               
+        </div>
+        <div id="Outdoor" class="tabcontent2" style="display: block; ">
+              <img src="./Images/outdoor1.jpg">
+              <img src="./Images/outdoor2.jpg">
+              <img src="./Images/outdoor3.jpg">
+              <img src="./Images/outdoor4.jpg">
+              <img src="./Images/outdoor5.jpg">
+              <img src="./Images/outdoor6.jpg">
+              <img src="./Images/outdoor7.jpg">
+              <img src="./Images/outdoor8.jpg">
+              <img src="./Images/outdoor9.jpg">
+        </div>
+        <div id="Indoor" class="tabcontent2">
+              <img src="./Images/indoor1.jpg">
+              <img src="./Images/indoor2.jpg">
+              <img src="./Images/indoor3.jpg">
+              <img src="./Images/indoor4.jpg">
+              <img src="./Images/indoor5.jpg">
+              <img src="./Images/indoor6.jpg">
+              <img src="./Images/indoor7.jpg">
+              <img src="./Images/indoor8.jpg">
+        </div>
+
+        <div id="Individual" class="tabcontent2">
+              <img src="./Images/individual1.jpg">
+              <img src="./Images/individual4.jpg">
+              <img src="./Images/individual7.jpg">
+              <img src="./Images/individual6.jpg">
+              <img src="./Images/individual2.jpg">
+              <img src="./Images/individual3.jpg">
+        </div>
+
+        <div id="Group" class="tabcontent2">
+              
+              <img src="./Images/group4.jpg">
+              <img src="./Images/group2.jpg">
+              <img src="./Images/group5.jpg">
+              <img src="./Images/group1.jpg">
+              <img src="./Images/group3.jpg">
+              <img src="./Images/group7.jpg">
+              <img src="./Images/group8.jpg">
+        </div>
+
+        <div id="Others" class="tabcontent2">
+              <img src="./Images/other5.jpg">
+              <img src="./Images/other1.jpg">
+              <img src="./Images/other4.jpg">
+              <img src="./Images/other2.jpg">
+              <img src="./Images/other3.jpg">
+              <img src="./Images/other5.jpg">
+        </div>
+    </div>
+
+    </section>
+
+    <!-- End section -->
+    <footer>
+              <div class="f-container">
+                    <div class="f-text">
+                       <h3 class="f-h3"> <a href="FTH-why.html" id="story" target="_blank" style="text-decoration: none; color:#e4e4e4;">Our Story of Why</a></h3>  
+                    </div>
+                    <div class="f-text">
+                       <h3 class="f-h3">Made with &#10084;</h3>
+                    </div>
+              </div>
+              
+              
+    </footer>
+
+
+</body>
+<script type="text/javascript">
+		
+		//Function for Toggling between tabs of Textual Description and JSON response		
+		function toggle(evt, Name) {
+    			var i, tabcontent, tablinks;
+    			tabcontent = document.getElementsByClassName("tabcontent");
+    			for (i = 0; i < tabcontent.length; i++) {
+        				tabcontent[i].style.display = "none";
+    				}
+    			
+    			tablinks = document.getElementsByClassName("tablinks");
+    			
+    			for (i = 0; i < tablinks.length; i++) {
+        			tablinks[i].className = tablinks[i].className.replace("active", "");
+    				}
+    			
+    			document.getElementById(Name).style.display = "block";
+    			evt.currentTarget.className += " active";
+			}
+
+		//Function for displaying the source image in conatiner
+		function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#sourceImage')
+                        .attr('src', e.target.result);
+
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+</script>
+
+<script type="text/javascript">
+		
+		//Script to request the image file to API and response of the JSON.
+
+		var data;
+
+		document.getElementById("myBtn").addEventListener("click", function() {
+
+  			var reader = new FileReader();
+  			// get the value of the Input Image.
+  			var imagefile = document.getElementById("inputImage").value;
+
+  			
+  			//After successfully loading of an Image.
+  			reader.addEventListener('load', function() {
+  					data = this.result;
+    				// To display the value of raw image binary : document.getElementById("file").innerText = data;
+    				processImage(data); //Function to call the microsoft API request & response.
+    				
+  	 		    });
+  	
+  	   	reader.readAsDataURL(document.querySelector('input').files[0]);
+
+  	 });
+
+		//Function to process the image using raw image binary format.
+	 function processImage(binarydata) {
+
+        // Replace the subscriptionKey string value with your valid subscription key.
+        var subscriptionKey = "3bccf559cdd446698d14e89b725f2510";
+        var uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze";
+
+        // Request parameters.
+        var params = {
+            "visualFeatures": "Categories,Description,Color,Adult,Tags,ImageType",
+            "details": "",
+            "language": "en",
+        };
+
+        // Perform the REST API call.
+        $.ajax({
+            url: uriBase + "?" + $.param(params),
+
+            // Request headers.
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/octet-stream");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+
+            type: "POST",
+            processData: false,
+            data: makeblob(binarydata),
+        })
+
+        .done(function(data) {
+            // Show formatted JSON on webpage.
+            $(".tablinks").prop('disabled',false);             
+            $("#responseTextArea").val(JSON.stringify(data, null, 2));
+
+            $("#imageText").html("");
+         		alert("Done.");
+       		
+       		var text = JSON.stringify(data.description.captions[0].text, null, 2);
+       		$("#imageText").append(text);
+
+
+            var x="",y; 
+            var x_array=[];
+
+            $("#imageText").append("<br><br> <b> Objects that are present in the images are : </b><br><br>");
+            
+            try{
+
+                for (var i=0 ; i<10; i++)                    //finding the objects in image file
+                {
+                    y = JSON.stringify(data.tags[i].name, null, 2)
+                    x += y + "<br>"; 
+                    x_array[i] = y; 
+                }
+            }
+            catch(err)
+                {
+                    console.log("End");
+                }
+             $("#imageText").append(x);  
+
+             var c1, xc1="";
+             var c1_array=[];
+             try{
+
+                for (var i=0 ; i<10; i++)                    //finding the categories of the image.
+                {
+                    c1 = JSON.stringify(data.categories[i].name, null, 2);  //find the category
+                    xc1 += c1 + "<br>"; 
+                    c1_array[i] = c1; 
+                }
+            }
+            catch(err)
+                {
+                    console.log("End");
+                }
+ 
+            
+
+            if(c1_array.length>1){
+              $("#imageText").append("<br><br> <b> categories are :</b><br> ");
+            }
+            else{
+              $("#imageText").append("<br><br> <b> category is :</b><br> "); 
+            }
+
+            for(var i=0;i<c1_array.length;i++)
+            {
+              $("#imageText").append(c1_array[i] + "<br>");
+
+            }
+
+            //code to add the image to category.
+
+            var coll= ["outdoor","indoor","individual","group","others"];
+
+            for(var i=0;i<=c1_array.length;i++){
+
+              if( c1_array[i].includes("outdoor") || c1_array[i].includes("sky") || c1_array[i].includes("ground") || c1_array[i].includes("building") || c1_array[i].includes("street") || c1_array[i].includes("beach") || c1_array[i].includes("mountain")){
+                addImage(coll[0]);
+                break;
+              }
+              if( c1_array[i].includes("indoor") || c1_array[i].includes("office") || c1_array[i].includes("room") || c1_array[i].includes("station") || c1_array[i].includes("hall")){
+                addImage(coll[1]);
+                break;
+              }
+              if( c1_array[i].includes("peoples") || c1_array[i].includes("group") || c1_array[i].includes("many")){
+                addImage(coll[3]);
+                break;
+              }
+              if( c1_array[i].includes("person") || c1_array[i].includes("people") || c1_array[i].includes("man") || c1_array[i].includes("women")){
+                addImage(coll[2]);
+                break;
+              }
+
+              if( c1_array[i].includes("plant") || c1_array[i].includes("others")){
+                addImage(coll[4]);
+                break;
+              }
+
+              
+            }
+
+        })
+
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // Display error message.
+            var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ? "" : jQuery.parseJSON(jqXHR.responseText).message;
+            alert(errorString);
+        });
+    };
+
+    makeblob = function (dataURL) {
+            var BASE64_MARKER = ';base64,';
+            if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                var parts = dataURL.split(',');
+                var contentType = parts[0].split(':')[1];
+                var raw = decodeURIComponent(parts[1]);
+                return new Blob([raw], { type: contentType });
+            }
+            var parts = dataURL.split(BASE64_MARKER);
+            var contentType = parts[0].split(':')[1];
+            var raw = window.atob(parts[1]);
+            var rawLength = raw.length;
+
+            var uInt8Array = new Uint8Array(rawLength);
+
+            for (var i = 0; i < rawLength; ++i) {
+                uInt8Array[i] = raw.charCodeAt(i);
+            }
+
+            return new Blob([uInt8Array], { type: contentType });
+        }
+
+	</script>
+<script>
+function call(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent2");
+
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks2");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function addImage(x){
+
+  var image = document.getElementById("inputImage").value;
+  var reader = new FileReader();
+
+  reader.addEventListener('load', function() {
+              
+              var c_img = document.createElement('img');
+              c_img.src=this.result;
+              if(x.includes("outdoor")){
+                  $("#Outdoor").prepend(c_img); 
+                  $.notify("Added to Outdoor Category." , "success"); 
+              }
+              if(x.includes("group")){
+                  $("#Group").prepend(c_img);
+                  $.notify("Added to Group Category ." , "success");
+
+              }
+              if(x.includes("individual")){
+                $("#Individual").prepend(c_img);
+                $.notify("Added to Individual Category","success");
+              }
+              if(x.includes("group")){
+                $("#Group").prepend(c_img);
+                $.notify("Added to Group Category","success");
+              }
+              if(x.includes("others")){
+                $("#Others").prepend(c_img);
+                $.notify("Added to Others Category","success");
+              }
+
+            });
+      
+    
+    reader.readAsDataURL(document.querySelector('input').files[0]);
+}
+
+
+</script>
+
+</html>
